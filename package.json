@@ -1,0 +1,21 @@
+{
+  "name": "smooth-scrolling",
+  "version": "0.0.1",
+  "description": "Smooth Scrolling ==========",
+  "main": "smooth-scrolling.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onvardgmbh/smooth-scrolling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onvardgmbh/smooth-scrolling/issues"
+  },
+  "homepage": "https://github.com/onvardgmbh/smooth-scrolling#readme"
+}

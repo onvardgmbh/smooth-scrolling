@@ -26,8 +26,6 @@
     })();
 
     window.smoothScrollToPx = function(to, callback, duration) {
-        var to = document.getElementById(to.getAttribute("href").replace('#','')).getBoundingClientRect().top + window.scrollY;
-
         // because it's so fucking difficult to detect the scrolling element, just move them all
         function move(amount) {
             document.documentElement.scrollTop = amount;

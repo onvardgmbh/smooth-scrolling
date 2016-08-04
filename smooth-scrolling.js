@@ -25,7 +25,9 @@
         return  window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function( callback ){ window.setTimeout(callback, 1000 / 60); };
     })();
 
-    window.scrollToPx = function(to, callback, duration) {
+    window.smoothScrollToPx = function(to, callback, duration) {
+        var to = document.getElementById(to.getAttribute("href").replace('#','')).getBoundingClientRect().top + window.scrollY;
+
         // because it's so fucking difficult to detect the scrolling element, just move them all
         function move(amount) {
             document.documentElement.scrollTop = amount;
@@ -59,17 +61,4 @@
         };
         animateScroll();
     };
-    var setup = function() {
-        var linkOrigins = document.querySelectorAll('.onsite-link');
-        Array.prototype.forEach.call(linkOrigins, function(el, i){
-            el.addEventListener('click', function(){
-                scrollToPx(document.getElementById(this.getAttribute("href").replace('#','')).getBoundingClientRect().top + window.scrollY);
-            });
-        });
-    };
-    if (document.readyState != 'loading'){
-        setup();
-    } else {
-        document.addEventListener('DOMContentLoaded', setup);
-    }
 }());

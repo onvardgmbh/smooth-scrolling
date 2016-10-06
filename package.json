@@ -1,6 +1,6 @@
 {
   "name": "smooth-scrolling",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Smooth Scrolling",
   "main": "smooth-scrolling.js",
   "dependencies": {},

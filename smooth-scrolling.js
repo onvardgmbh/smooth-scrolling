@@ -59,4 +59,36 @@
         };
         animateScroll();
     };
+
+    window.smoothScrollToId = function(id) {
+        var element = document.getElementById(id);
+
+        return function () {
+            var target = element && typeof element.getBoundingClientRect === 'function'
+                ? element.getBoundingClientRect().top || 0
+                : 0;
+
+            window.smoothScrollToPx(document.body.scrollTop + document.documentElement.scrollTop + target);
+        };
+    };
+
+    window.smoothScrollToFragment = function(anchor) {
+        var parts = anchor.href.split('#');
+        var doc = parts[0];
+        var targetId = parts[1];
+
+        // If the target is not on the same document, abort
+        if (doc !== '' && !document.location.href.split('#')[0].endsWith(doc)) {
+            return;
+        }
+
+        anchor.addEventListener('click', smoothScrollToId(targetId));
+    };
+
+    window.smoothScrollToAllFragments = function() {
+        Array.prototype.forEach.call(
+            document.querySelectorAll('a[href*="#"]'),
+            smoothScrollToFragment
+        );
+    };
 }());
